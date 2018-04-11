@@ -7,7 +7,6 @@ import co.edu.sena.universidad.rest.auth.DigestUtil;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.util.List;
-import javax.annotation.security.RolesAllowed;
 import javax.ejb.EJB;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
@@ -27,7 +26,18 @@ public class UsuarioREST {
 
     @EJB
     private UsuariosFacade usuarioEJB;
+    
+      public List<Usuarios> findAll(
+            @QueryParam("codigo") String codigo,
+            @QueryParam("nombres") String nombres,
+            @QueryParam("apellidos") String apellidos,
+            @QueryParam("email") String email,
+            @QueryParam("documento") String documento,
+            @QueryParam("direccion") Boolean direccion) {
 
+        return usuarioEJB.
+                sexo, activo, tipoDocumento);
+    }
    
     @GET
     @Path("{id}")

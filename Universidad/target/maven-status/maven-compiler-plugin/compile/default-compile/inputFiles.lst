@@ -1,0 +1,16 @@
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/auth/AuthUtils.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/sessions/UsuariosFacade.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/sessions/AbstractFacade.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/entities/MateriasElectivas.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/entities/Roles.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/entities/Usuarios.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/services/RolREST.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/auth/Token.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/services/UsuarioREST.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/sessions/RolesFacade.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/auth/SecurityFilter.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/services/AppConfig.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/auth/DigestUtil.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/auth/AuthREST.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/sessions/MateriasElectivasFacade.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/services/MateriaElectivasREST.java

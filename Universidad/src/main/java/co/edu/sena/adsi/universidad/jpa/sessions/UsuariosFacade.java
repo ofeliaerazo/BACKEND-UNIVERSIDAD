@@ -2,11 +2,6 @@ package co.edu.sena.adsi.universidad.jpa.sessions;
 
 import co.edu.sena.adsi.universidad.jpa.entities.Usuarios;
 import co.edu.sena.adsi.universidad.jpa.entities.Usuarios_;
-import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.apellidos;
-import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.codigoUniversitario;
-import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.documento;
-import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.nombres;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
@@ -15,7 +10,6 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 
 /**
@@ -79,6 +73,5 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
         }
     }
     
-     
-    
+         
 }
