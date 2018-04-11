@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package co.edu.sena.adsi.universidad;
+package co.edu.sena.adsi.universidad.jpa.entities;
 
 import java.io.Serializable;
 import java.util.List;
