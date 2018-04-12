@@ -8,18 +8,14 @@ package co.edu.sena.adsi.universidad.jpa.entities;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -28,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ofelia
+ * @author adsi1261718
  */
 @Entity
 @Table(name = "usuarios")
@@ -44,20 +40,17 @@ public class Usuarios implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Size(max = 20)
-    @Column(name = "codigo_universitario")
-    private String codigoUniversitario;
+    @Column(name = "codigo")
+    private String codigo;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 45)
-    @Column(name = "nombres")
-    private String nombres;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "apellidos")
-    private String apellidos;
+    @Column(name = "nombres_completos")
+    private String nombresCompletos;
     // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
-    @Size(max = 60)
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 100)
     @Column(name = "email")
     private String email;
     @Basic(optional = false)
@@ -67,35 +60,15 @@ public class Usuarios implements Serializable {
     private String documento;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 200)
+    @Size(min = 1, max = 100)
     @Column(name = "contrase\u00f1a")
     private String contraseña;
     @Column(name = "estado")
     private Boolean estado;
-    
-    
-    @JoinTable(name = "usuarios_has_rol", joinColumns = {
-        @JoinColumn(name = "id_usuarios", referencedColumnName = "id")}, inverseJoinColumns = {
-        @JoinColumn(name = "id_rol", referencedColumnName = "id")})
-    @ManyToMany
-    private List<Roles> rolesList;
-    /*
     @ManyToMany(mappedBy = "usuariosList")
     private List<Roles> rolesList;
-    */
-    
-    @JoinTable(name = "usuarios_materias", joinColumns = {
-        @JoinColumn(name = "id_materias_electivas", referencedColumnName = "id")}, inverseJoinColumns = {
-        @JoinColumn(name = "id_usuarios", referencedColumnName = "id")})
-    @ManyToMany
-    private List<MateriasElectivas> materiasElectivasList;
-    
-    /*@ManyToMany(mappedBy = "usuariosList")
-    private List<MateriasElectivas> materiasElectivasList;
-    */
-    
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "idProfesor")
-    private List<MateriasElectivas> materiasElectivasList1;
+    @ManyToMany(mappedBy = "usuariosList")
+    private List<Electivas> electivasList;
 
     public Usuarios() {
     }
@@ -104,10 +77,10 @@ public class Usuarios implements Serializable {
         this.id = id;
     }
 
-    public Usuarios(Integer id, String nombres, String apellidos, String documento, String contraseña) {
+    public Usuarios(Integer id, String nombresCompletos, String email, String documento, String contraseña) {
         this.id = id;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
+        this.nombresCompletos = nombresCompletos;
+        this.email = email;
         this.documento = documento;
         this.contraseña = contraseña;
     }
@@ -120,28 +93,20 @@ public class Usuarios implements Serializable {
         this.id = id;
     }
 
-    public String getCodigoUniversitario() {
-        return codigoUniversitario;
+    public String getCodigo() {
+        return codigo;
     }
 
-    public void setCodigoUniversitario(String codigoUniversitario) {
-        this.codigoUniversitario = codigoUniversitario;
+    public void setCodigo(String codigo) {
+        this.codigo = codigo;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getNombresCompletos() {
+        return nombresCompletos;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setNombresCompletos(String nombresCompletos) {
+        this.nombresCompletos = nombresCompletos;
     }
 
     public String getEmail() {
@@ -186,21 +151,12 @@ public class Usuarios implements Serializable {
     }
 
     @XmlTransient
-    public List<MateriasElectivas> getMateriasElectivasList() {
-        return materiasElectivasList;
+    public List<Electivas> getElectivasList() {
+        return electivasList;
     }
 
-    public void setMateriasElectivasList(List<MateriasElectivas> materiasElectivasList) {
-        this.materiasElectivasList = materiasElectivasList;
-    }
-
-    @XmlTransient
-    public List<MateriasElectivas> getMateriasElectivasList1() {
-        return materiasElectivasList1;
-    }
-
-    public void setMateriasElectivasList1(List<MateriasElectivas> materiasElectivasList1) {
-        this.materiasElectivasList1 = materiasElectivasList1;
+    public void setElectivasList(List<Electivas> electivasList) {
+        this.electivasList = electivasList;
     }
 
     @Override
@@ -225,7 +181,7 @@ public class Usuarios implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.adsi.universidad.Usuarios[ id=" + id + " ]";
+        return "co.edu.sena.adsi.universidad.jpa.entities.Usuarios[ id=" + id + " ]";
     }
     
 }

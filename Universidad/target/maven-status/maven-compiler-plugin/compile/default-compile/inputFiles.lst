@@ -1,5 +1,6 @@
 /home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/auth/AuthUtils.java
 /home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/sessions/UsuariosFacade.java
+/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/services/MateriasElectivasREST.java
 /home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/sessions/AbstractFacade.java
 /home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/entities/MateriasElectivas.java
 /home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/entities/Roles.java
@@ -13,4 +14,3 @@
 /home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/auth/DigestUtil.java
 /home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/auth/AuthREST.java
 /home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/adsi/universidad/jpa/sessions/MateriasElectivasFacade.java
-/home/adsi1261718/Universidad/BACKEND-UNIVERSIDAD/Universidad/src/main/java/co/edu/sena/universidad/rest/services/MateriaElectivasREST.java

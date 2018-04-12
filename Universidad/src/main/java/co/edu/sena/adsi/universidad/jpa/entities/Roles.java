@@ -24,7 +24,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ofelia
+ * @author adsi1261718
  */
 @Entity
 @Table(name = "roles")
@@ -45,18 +45,12 @@ public class Roles implements Serializable {
     @Size(min = 1, max = 100)
     @Column(name = "descripcion")
     private String descripcion;
-    
-    @ManyToMany(mappedBy = "rolesList")
-    private List<Usuarios> usuariosList;
-
-    
-    /*
-@JoinTable(name = "roles_has_usuarios", joinColumns = {
+    @JoinTable(name = "roles_has_usuarios", joinColumns = {
         @JoinColumn(name = "id_roles", referencedColumnName = "id")}, inverseJoinColumns = {
         @JoinColumn(name = "id_usuarios", referencedColumnName = "id")})
     @ManyToMany
     private List<Usuarios> usuariosList;
-*/
+
     public Roles() {
     }
 
@@ -116,7 +110,7 @@ public class Roles implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.adsi.universidad.Roles[ id=" + id + " ]";
+        return "co.edu.sena.adsi.universidad.jpa.entities.Roles[ id=" + id + " ]";
     }
     
 }

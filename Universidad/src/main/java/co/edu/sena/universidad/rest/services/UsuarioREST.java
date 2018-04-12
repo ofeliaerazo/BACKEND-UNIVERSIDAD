@@ -1,7 +1,7 @@
 package co.edu.sena.universidad.rest.services;
 
-
 import co.edu.sena.adsi.universidad.jpa.entities.Usuarios;
+import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.nombresCompletos;
 import co.edu.sena.adsi.universidad.jpa.sessions.UsuariosFacade;
 import co.edu.sena.universidad.rest.auth.DigestUtil;
 import com.google.gson.Gson;
@@ -27,18 +27,18 @@ public class UsuarioREST {
     @EJB
     private UsuariosFacade usuarioEJB;
     
+    @GET
       public List<Usuarios> findUsers(
             @QueryParam("id") Integer id,
-            @QueryParam("codigoUniversitario") String codigoUniversitario,
-            @QueryParam("nombres") String nombres,
-            @QueryParam("apellidos") String apellidos,
+            @QueryParam("codigoUniversitario") String codigo,
+            @QueryParam("nombresCompletos") String nombrescompletos,
             @QueryParam("email") String email,
             @QueryParam("documento") String documento,
             @QueryParam("contraseña") String contraseña,
             @QueryParam("estado") Boolean estado
             
     ) {
-        return usuarioEJB.findUsers(id, codigoUniversitario, nombres, apellidos, email, documento, contraseña, estado);
+        return usuarioEJB.findUsers(id, codigo, nombrescompletos, email, documento, contraseña, estado);
     }
    
     @GET
@@ -92,6 +92,7 @@ public class UsuarioREST {
      * @param usuario
      * @return
      */
+    
     @PUT
     @Path("{id}")
     public Response edit(@PathParam("id") Integer id, Usuarios usuario) {

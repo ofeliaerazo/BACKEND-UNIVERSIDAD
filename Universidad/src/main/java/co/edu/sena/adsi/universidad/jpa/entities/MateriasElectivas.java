@@ -6,28 +6,21 @@
 package co.edu.sena.adsi.universidad.jpa.entities;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author ofelia
+ * @author adsi1261718
  */
 @Entity
 @Table(name = "materias_electivas")
@@ -42,43 +35,20 @@ public class MateriasElectivas implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Integer id;
-    @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
-    @Column(name = "nombre")
-    private String nombre;
-    @Size(max = 300)
+    @Column(name = "cupos")
+    private Integer cupos;
+    @Size(max = 255)
     @Column(name = "descripcion")
     private String descripcion;
-    @Basic(optional = false)
-    @NotNull
-    @Column(name = "cupos")
-    private int cupos;
-    
-    @ManyToMany(mappedBy = "materiasElectivasList")
-    private List<Usuarios> usuariosList;
-    
-    /*@JoinTable(name = "usuarios_materias", joinColumns = {
-        @JoinColumn(name = "id_materias_electivas", referencedColumnName = "id")}, inverseJoinColumns = {
-        @JoinColumn(name = "id_usuarios", referencedColumnName = "id")})
-    @ManyToMany
-    private List<Usuarios> usuariosList;
-    */
-    @JoinColumn(name = "id_profesor", referencedColumnName = "id")
-    @ManyToOne(optional = false)
-    private Usuarios idProfesor;
+    @Size(max = 255)
+    @Column(name = "nombre")
+    private String nombre;
 
     public MateriasElectivas() {
     }
 
     public MateriasElectivas(Integer id) {
         this.id = id;
-    }
-
-    public MateriasElectivas(Integer id, String nombre, int cupos) {
-        this.id = id;
-        this.nombre = nombre;
-        this.cupos = cupos;
     }
 
     public Integer getId() {
@@ -89,12 +59,12 @@ public class MateriasElectivas implements Serializable {
         this.id = id;
     }
 
-    public String getNombre() {
-        return nombre;
+    public Integer getCupos() {
+        return cupos;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setCupos(Integer cupos) {
+        this.cupos = cupos;
     }
 
     public String getDescripcion() {
@@ -105,29 +75,12 @@ public class MateriasElectivas implements Serializable {
         this.descripcion = descripcion;
     }
 
-    public int getCupos() {
-        return cupos;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setCupos(int cupos) {
-        this.cupos = cupos;
-    }
-
-    @XmlTransient
-    public List<Usuarios> getUsuariosList() {
-        return usuariosList;
-    }
-
-    public void setUsuariosList(List<Usuarios> usuariosList) {
-        this.usuariosList = usuariosList;
-    }
-
-    public Usuarios getIdProfesor() {
-        return idProfesor;
-    }
-
-    public void setIdProfesor(Usuarios idProfesor) {
-        this.idProfesor = idProfesor;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     @Override
@@ -152,7 +105,7 @@ public class MateriasElectivas implements Serializable {
 
     @Override
     public String toString() {
-        return "co.edu.sena.adsi.universidad.MateriasElectivas[ id=" + id + " ]";
+        return "co.edu.sena.adsi.universidad.jpa.entities.MateriasElectivas[ id=" + id + " ]";
     }
     
 }

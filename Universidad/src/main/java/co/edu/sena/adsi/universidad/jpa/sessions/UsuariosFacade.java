@@ -2,13 +2,6 @@ package co.edu.sena.adsi.universidad.jpa.sessions;
 
 import co.edu.sena.adsi.universidad.jpa.entities.Usuarios;
 import co.edu.sena.adsi.universidad.jpa.entities.Usuarios_;
-import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.apellidos;
-import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.codigoUniversitario;
-import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.contraseña;
-import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.documento;
-import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.estado;
-import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.id;
-import static co.edu.sena.adsi.universidad.jpa.entities.Usuarios_.nombres;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -82,8 +75,8 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
         }
     }
     
-    public List<Usuarios> findUsers(Integer id, String codigoUniversitario, String nombres,
-            String apellidos, String email, String documento, String contraseña,
+    public List<Usuarios> findUsers(Integer id, String codigo, String nombresCompletos,
+            String email, String documento, String contraseña,
             Boolean estado){
         
         CriteriaBuilder cb = getEntityManager().getCriteriaBuilder();
@@ -96,18 +89,15 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
             data = cb.and(data, cb.equal(usuario.get(Usuarios_.id), id));
         }
         
-        if(codigoUniversitario != null){
-            data = cb.and(data, cb.equal(usuario.get(Usuarios_.codigoUniversitario), codigoUniversitario));
+        if(codigo != null){
+            data = cb.and(data, cb.equal(usuario.get(Usuarios_.codigo), codigo));
         }
         
-        if(nombres != null){
-            data = cb.and(data, cb.equal(usuario.get(Usuarios_.nombres), nombres));
+        if(nombresCompletos != null){
+            data = cb.and(data, cb.equal(usuario.get(Usuarios_.nombresCompletos), nombresCompletos));
         }
         
-        if(apellidos != null){
-            data = cb.and(data, cb.equal(usuario.get(Usuarios_.apellidos), apellidos));
-        }
-        
+                
         if(email != null){
             data = cb.and(data, cb.equal(usuario.get(Usuarios_.email), email));
         }
@@ -127,7 +117,7 @@ public class UsuariosFacade extends AbstractFacade<Usuarios> {
         
                
         cq.where(data);
-        cq.orderBy(cb.asc(usuario.get(Usuarios_.nombres)));
+        cq.orderBy(cb.asc(usuario.get(Usuarios_.nombresCompletos)));
         TypedQuery<Usuarios> tq = em.createQuery(cq);
         
         try {
