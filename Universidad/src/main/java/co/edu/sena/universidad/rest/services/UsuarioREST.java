@@ -27,16 +27,18 @@ public class UsuarioREST {
     @EJB
     private UsuariosFacade usuarioEJB;
     
-      public List<Usuarios> findAll(
-            @QueryParam("codigo") String codigo,
+      public List<Usuarios> findUsers(
+            @QueryParam("id") Integer id,
+            @QueryParam("codigoUniversitario") String codigoUniversitario,
             @QueryParam("nombres") String nombres,
             @QueryParam("apellidos") String apellidos,
             @QueryParam("email") String email,
             @QueryParam("documento") String documento,
-            @QueryParam("direccion") Boolean direccion) {
-
-        return usuarioEJB.
-                sexo, activo, tipoDocumento);
+            @QueryParam("contraseña") String contraseña,
+            @QueryParam("estado") Boolean estado
+            
+    ) {
+        return usuarioEJB.findUsers(id, codigoUniversitario, nombres, apellidos, email, documento, contraseña, estado);
     }
    
     @GET
